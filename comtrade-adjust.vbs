@@ -61,7 +61,7 @@ do while i < 2
 	monat = mid(Text, position - 2, 2)
 	datum = mid(Text, position-2, 10)
 
-	Text = left(Text, position - 3) & tag & "/" & monat & right(Text, len(Text) - position)
+	Text = left(Text, position - 3) & tag & "/" & monat & right(Text, len(Text) - position - 2)
 	' nächste Zeile
 	position = instr(position + 1, Text, vbCrLf)
 	i = i+1

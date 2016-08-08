@@ -22,8 +22,6 @@ Dateisystem.DeleteFile path
 ' erste Zeile überspringen
 position = instr(Text, vbCrLf)
 
-'Stringlänge
-str_len = len(Text)
 
 ' Anzahl Signale lesen
 position = instr(position+1, Text, ",")
@@ -47,7 +45,7 @@ do
 	if mid(Text, position+1, 1) = "," then
 			
 			' String wieder zusammenbauen
-			Text = left(Text, position) & "kA" & right(Text, str_len-position)
+			Text = left(Text, position) & "kA" & right(Text, len(Text) -position)
 		end if
 
 		akt_sig = akt_sig + 1
@@ -63,7 +61,7 @@ do while i < 2
 	monat = mid(Text, position - 2, 2)
 	datum = mid(Text, position-2, 10)
 
-	Text = left(Text, position - 3) & tag & "/" & monat & right(Text, str_len - position)
+	Text = left(Text, position - 3) & tag & "/" & monat & right(Text, len(Text) - position)
 	' nächste Zeile
 	position = instr(position + 1, Text, vbCrLf)
 	i = i+1
